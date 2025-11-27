@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Developer Portfolio - Daniel Batterby</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700;900&display=swap" rel-stylesheet>
+    <style>
+        /* --- Web Developer Design: Modern, Sleek, Magenta Accent --- */
+        :root {
+            --wd-primary: #8A2BE2; /* Blue Violet/Purple */
+            --wd-secondary: #FF1493; /* Deep Pink/Magenta */
+            --wd-background: #F0F0F5;
+            --wd-text: #333;
+            --wd-card-bg: white;
+            --wd-shadow: rgba(138, 43, 226, 0.3);
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.7;
+            color: var(--wd-text);
+            background: var(--wd-background);
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--wd-secondary);
+            transition: color 0.3s;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header/Hero Section --- */
+        .wd-header {
+            padding: 80px 0;
+            background: var(--wd-primary);
+            color: white;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Top Left Rectangular Image */
+        .profile-img-container {
+            width: 250px;
+            height: 300px;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-right: 8px solid var(--wd-secondary);
+            box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+        }
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(1.2);
+        }
+
+        .wd-content {
+            padding-left: 300px; /* Offset for the image */
+        }
+
+        #dynamicGreeting {
+            font-size: 1.2em;
+            font-weight: 300;
+            color: var(--wd-secondary);
+            margin-bottom: 5px;
+        }
+
+        .wd-header h1 {
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 5px;
+            line-height: 1;
+            text-shadow: 0 3px 5px rgba(0,0,0,0.2);
+        }
+        .wd-header h2 {
+            font-size: 1.6em;
+            color: var(--wd-secondary);
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        /* --- Main Sections --- */
+        .wd-section {
+            padding: 70px 0;
+            text-align: center;
+        }
+
+        .wd-section h3 {
+            font-size: 2.5em;
+            color: var(--wd-primary);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .wd-section h3::after {
+            content: '♦';
+            display: block;
+            color: var(--wd-secondary);
+            font-size: 0.5em;
+            line-height: 0.1;
+        }
+
+        .wd-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .wd-skill-card {
+            background: var(--wd-card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: left;
+            border: 1px solid var(--wd-secondary);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .wd-skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--wd-primary);
+        }
+        .wd-skill-card h4 {
+            color: var(--wd-primary);
+        }
+        
+        /* Project Specific Styles */
+        .wd-project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            text-align: left;
+        }
+        .wd-project-card {
+            background: var(--wd-card-bg);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .wd-project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 4px solid var(--wd-secondary);
+        }
+        .wd-project-card-content {
+            padding: 20px;
+        }
+        .wd-project-card-content h4 {
+            color: var(--wd-primary);
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+        .wd-project-card-content a {
+            font-weight: 700;
+        }
+
+        /* --- Call to Action (CTA) --- */
+        .wd-cta-section {
+            background: var(--wd-secondary);
+            padding: 90px 0;
+            text-align: center;
+            color: white;
+            clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%); /* Geometric cut */
+            margin-top: -50px;
+        }
+        .wd-cta-section h3 {
+            font-size: 2.8em;
+            color: white;
+            margin-bottom: 25px;
+        }
+        .wd-cta-btn {
+            display: inline-block;
+            background: var(--wd-primary);
+            color: white;
+            padding: 18px 50px;
+            border-radius: 5px;
+            font-weight: 700;
+            font-size: 1.3em;
+            text-transform: uppercase;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+        .wd-cta-btn:hover {
+            background: var(--wd-primary);
+            color: var(--wd-secondary);
+            transform: scale(1.03);
+            border: 2px solid var(--wd-secondary);
+        }
+
+        /* --- Responsiveness --- */
+        @media (max-width: 768px) {
+            .wd-header {
+                padding: 300px 20px 60px;
+                text-align: center;
+            }
+            .profile-img-container {
+                width: 100%;
+                height: 250px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .wd-content {
+                padding-left: 0;
+            }
+            .wd-header h1 {
+                font-size: 3em;
+            }
+            .wd-cta-section {
+                padding: 60px 20px;
+                clip-path: none;
+                margin-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="about" class="wd-header">
+        <div class="profile-img-container">
+            <img src="https://techorbitjobs.com/wp-content/uploads/2025/10/testimonial-10.png" alt="Daniel Batterby Profile Picture">
+        </div>
+        <div class="container wd-content">
+            <div id="dynamicGreeting"></div>
+            <h1>I'M DANIEL BATTERBY</h1>
+            <h2>// HIGH-IMPACT WEB DEVELOPER //</h2>
+            <p>I transform ambitious visions into flawless, high-speed, and accessible digital realities using the latest frontend and backend technologies.</p>
+        </div>
+    </header>
+
+    <section id="skills" class="wd-section">
+        <div class="container">
+            <h3>CORE DEVELOPMENT STACK</h3>
+            <div class="wd-skills-grid">
+                <div class="wd-skill-card"><h4>Frontend Mastery</h4><p>React, Next.js, TypeScript, Advanced CSS/SASS</p></div>
+                <div class="wd-skill-card"><h4>Backend Services</h4><p>Node.js, Express, REST APIs, GraphQL</p></div>
+                <div class="wd-skill-card"><h4>Databases</h4><p>MongoDB, PostgreSQL, MySQL</p></div>
+                <div class="wd-skill-card"><h4>Performance</h4><p>SEO Optimization, Accessibility (WCAG), Speed Tuning</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="wd-section">
+        <div class="container">
+            <h3>FEATURED PROJECTS</h3>
+            <div class="wd-project-grid">
+                <div class="wd-project-card">
+                    <img src="project1.png"
+
+[Image of SaaS Dashboard UI]
+" alt="SaaS Dashboard Screenshot">
+                    <div class="wd-project-card-content">
+                        <h4>SaaS Platform Redesign</h4>
+                        <p>Led the transition of a legacy platform to React/Next.js, resulting in a 40% speed improvement.</p>
+                        <a href="[Link to Live Demo]">View Live Project</a>
+                    </div>
+                </div>
+                <div class="wd-project-card">
+                    <img src="project2.png"
+
+[Image of E-commerce Website Checkout Flow]
+" alt="E-commerce Checkout Screenshot">
+                    <div class="wd-project-card-content">
+                        <h4>High-Conversion E-commerce Site</h4>
+                        <p>Developed a full e-commerce solution with custom checkout flow and seamless Stripe integration.</p>
+                        <a href="[Link to Case Study]">View Case Study</a>
+                    </div>
+                </div>
+                <div class="wd-project-card">
+                    <img src="project3.png" alt="Blog Platform Mobile View">
+                    <div class="wd-project-card-content">
+                        <h4>API-Driven Blog Platform</h4>
+                        <p>Built a content management system (CMS) using GraphQL and Node.js for rapid content delivery.</p>
+                        <a href="[Link to GitHub]">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="wd-cta-section">
+        <div class="container">
+            <h3>READY TO LAUNCH YOUR NEXT PROJECT?</h3>
+            <a href="[Link to Contact/Booking]" class="wd-cta-btn">HIRE DANIEL TODAY</a>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const greetingElement = document.getElementById('dynamicGreeting');
+            const date = new Date();
+            const hour = date.getHours();
+            let greeting;
+
+            if (hour < 12) {
+                greeting = 'Good morning!';
+            } else if (hour < 18) {
+                greeting = 'Good afternoon!';
+            } else {
+                greeting = 'Good evening!';
+            }
+
+            if (greetingElement) {
+                greetingElement.textContent = greeting + ' Welcome to my portfolio,';
+            }
+        });
+    </script>
+</body>
+</html>
